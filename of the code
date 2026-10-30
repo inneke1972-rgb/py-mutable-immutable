@@ -1,0 +1,46 @@
+string = "Hello, world!"
+string[0] = "A"	# Error occurs
+age = 18
+age += 1 		# age = 19 but it is a new object in your program
+age = 18	
+print(id(age)) 		# 9789536
+
+age += 1	
+print(id(age)) 		# 9789568
+my_bag = (["phone charger", "laptop charger"], "napkins")
+
+# Not allowed due to an error — tuple is an immutable object
+my_bag[0] = ["phone charger", "laptop charger", "tablet charger"]
+
+# Allowed because we change mutable objects inside
+my_bag[0].append("tablet charger")
+first_list = [1, 2, 3]
+second_list = first_list		
+print(second_list) # [1, 2, 3]
+
+print(id(first_list))	# 140276000714240
+print(id(second_list))	# 140276000714240
+
+print(first_list is second_list)	# True
+first_list.append(4)
+
+print(first_list)			# [1, 2, 3, 4]
+print(second_list)		# [1, 2, 3, 4]
+
+print(first_list is second_list)	# True
+print(first_list == second_list)	# True
+my_list = ["apple", "banana"]
+my_text = "I love apple"
+
+
+def add_word(lst: list, text: str, word: str):
+	lst.append(word)
+	text += word 
+
+
+# Before function: my_list = ["apple", "banana"], my_text = "I love apple"
+
+add_word(my_list, my_text, "orange")
+
+# Inside function: my_list = ["apple", "banana", "orange"], my_text = "I love appleorange"
+# After function: my_list = ["apple", "banana", "orange"], my_text = "I love apple"
